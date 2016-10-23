@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/backgroud_gray"
+    android:orientation="vertical"
+    android:id="@+id/activity_main__login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yitwee.www.aixi.LoginActivity">
+    <TextView
+        android:background="@color/login_blue"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="登陆"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/white"/>
+    <EditText
+        android:background="@android:color/transparent"
+        android:id="@+id/et_login_name"
+        android:textColor="@color/black"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="手机号/学号/邮箱"
+        android:textColorHint="@color/word_gray"
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:background="@android:color/transparent"
+        android:id="@+id/et_login_password"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="密码"
+        android:textColor="@color/black"
+        android:textColorHint="@color/word_gray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/bt_login_forgetpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="忘记密码？"
+        android:layout_gravity="end"
+        android:layout_marginRight="30dp"
+        android:background="@android:color/transparent"
+        android:textColor="@color/word_gray"/>
+    <Button
+        android:id="@+id/bt_login_login"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登陆"
+        android:background="@color/login_blue"
+        />
+    <Button
+        android:background="@android:color/transparent"
+        android:id="@+id/bt_login_newuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="注册新账号 >"
+        android:textColor="@color/word_gray"
+        />
+
+</LinearLayout>

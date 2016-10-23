@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/backgroud_gray"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yitwee.www.aixi.RegisterActivity">
+    <Button
+        android:id="@+id/bt_register_return"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="fill_vertical"
+        android:text="手机号注册 "
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:background="@color/login_blue"
+        />
+    <EditText
+        android:textColor="@color/black"
+        android:background="@android:color/transparent"
+        android:id="@+id/et_register_phonenumber"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="请输入手机号(中国大陆号码)"
+        android:textColorHint="@color/word_gray"
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_marginLeft="30dp"
+            android:background="@android:color/transparent"
+            android:id="@+id/et_register_verifycode"
+            android:hint="验证码"
+            android:textColorHint="@color/word_gray"
+            android:layout_width="250dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_marginLeft="30dp"
+            android:id="@+id/bt_register_getcode"
+            android:background="@color/backgroud_gray"
+            android:text="获取验证码"
+            android:textColor="@color/word_gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/bt_register_next"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="下一步"
+        android:background="@color/login_blue"
+        />
+    <Button
+        android:background="@android:color/transparent"
+        android:id="@+id/bt_register_nocode"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="收不到验证码？"
+        android:textColor="@color/black"
+        />
+
+</LinearLayout>
+
+
