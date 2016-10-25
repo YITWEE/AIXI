@@ -1,4 +1,4 @@
-package com.yitwee.www.aixi;
+/*package com.yitwee.www.aixi;
 
 import android.util.Log;
 import android.widget.Toast;
@@ -15,7 +15,7 @@ import cn.bmob.v3.listener.UpdateListener;
  * Created by Wei DH on 2016/10/24.
  */
 
-public class MyOwnCode_Wei {
+/*public class MyOwnCode_Wei {
 
 
     public void onClick() {
@@ -115,3 +115,4 @@ public class MyOwnCode_Wei {
     }
 
 }
+*/

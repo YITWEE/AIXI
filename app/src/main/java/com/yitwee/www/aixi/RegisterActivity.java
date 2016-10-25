@@ -5,28 +5,37 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import static android.R.id.button1;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView tv_phonenumber;
-    private TextView tv_verifycode;
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener,CompoundButton.OnCheckedChangeListener{
+    private Switch st_sex;
+    private EditText et_username;
+    private EditText et_password;
+    private EditText et_school;
+    private EditText et_phonenumber;
+    private EditText et_verifycode;
     private Button bt_return;
     private Button bt_getcode;
     private Button bt_next;
     private Button bt_nocode;
-    private String phonenumber;
-    private String verifycode;
-
+    private String username,password,school,phonenumber,verifycode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        tv_phonenumber= (TextView) findViewById(R.id.et_register_phonenumber);
-        tv_verifycode= (TextView) findViewById(R.id.et_register_verifycode);
+        st_sex= (Switch) findViewById(R.id.st_register_sex);
+        et_username= (EditText) findViewById(R.id.et_login_name);
+        et_password= (EditText) findViewById(R.id.et_register_password);
+        et_school= (EditText) findViewById(R.id.et_register_school);
+        et_phonenumber= (EditText) findViewById(R.id.et_register_phonenumber);
+        et_verifycode= (EditText) findViewById(R.id.et_register_verifycode);
         bt_return= (Button) findViewById(R.id.bt_register_return);
         bt_getcode= (Button) findViewById(R.id.bt_register_getcode);
         bt_next= (Button) findViewById(R.id.bt_register_next);
@@ -35,8 +44,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         bt_getcode.setOnClickListener(this);
         bt_next.setOnClickListener(this);
         bt_nocode.setOnClickListener(this);
+        st_sex.setOnCheckedChangeListener(this);
     }
-
+    //按钮监听处理函数
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -47,8 +57,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 Toast.makeText(RegisterActivity.this,"验证个毛呀 验证",Toast.LENGTH_LONG).show();
                 break;
             case R.id.bt_register_next:
-                phonenumber=tv_phonenumber.getText().toString().trim();
-                verifycode=tv_verifycode.getText().toString().trim();
+                phonenumber=et_phonenumber.getText().toString().trim();
+                verifycode=et_verifycode.getText().toString().trim();
                 if(phonenumber.isEmpty()|verifycode.isEmpty())
                 {
                     Toast.makeText(RegisterActivity.this,"请输入手机号和验证码",Toast.LENGTH_LONG).show();
@@ -63,5 +73,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         }
 
+    }
+    //性别选择监听处理函数
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if(isChecked)
+        {
+            Toast.makeText(RegisterActivity.this,"你是女生，哥哥的女生。",Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            Toast.makeText(RegisterActivity.this,"你是男生，妹妹的男生。",Toast.LENGTH_LONG).show();
+        }
     }
 }
