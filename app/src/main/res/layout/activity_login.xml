@@ -15,27 +15,74 @@
         android:gravity="center"
         android:textSize="20sp"
         android:textColor="@color/white"/>
-    <EditText
-        android:background="@android:color/transparent"
-        android:id="@+id/et_login_name"
-        android:textColor="@color/black"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:hint="手机号/学号/邮箱"
-        android:textColorHint="@color/word_gray"
-        android:layout_marginTop="60dp"
+    
+    <RelativeLayout
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <EditText
-        android:background="@android:color/transparent"
-        android:id="@+id/et_login_password"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:hint="密码"
-        android:textColor="@color/black"
-        android:textColorHint="@color/word_gray"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_login_phone"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/telephone"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="40dp" />
+        <EditText
+            android:textColor="@color/black"
+            android:background="@android:color/transparent"
+            android:id="@+id/et_login_phonenumber"
+            android:hint="请输入手机号(中国大陆)"
+            android:textColorHint="@color/word_gray"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@+id/iv_login_phone"
+            android:layout_toEndOf="@+id/iv_login_phone"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="60dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            android:layout_below="@id/et_login_phonenumber"
+            android:layout_alignLeft="@id/et_login_phonenumber"
+            android:layout_alignRight="@id/et_login_phonenumber"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_login_unlock"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/lock_open"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="40dp" />
+        <EditText
+            android:textColor="@color/black"
+            android:background="@android:color/transparent"
+            android:id="@+id/et_login_password"
+            android:hint="请输入登陆密码"
+            android:textColorHint="@color/word_gray"
+            android:layout_toRightOf="@id/iv_login_unlock"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignBaseline="@id/iv_login_unlock"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            android:layout_below="@id/et_login_password"
+            android:layout_alignLeft="@id/et_login_password"
+            android:layout_alignRight="@id/et_login_password"/>
+    </RelativeLayout>
+
+
     <Button
         android:id="@+id/bt_login_forgetpassword"
         android:layout_width="wrap_content"
@@ -64,5 +111,4 @@
         android:text="注册新账号 >"
         android:textColor="@color/word_gray"
         />
-
 </LinearLayout>

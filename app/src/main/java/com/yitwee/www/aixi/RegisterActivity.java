@@ -31,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         st_sex= (Switch) findViewById(R.id.st_register_sex);
-        et_username= (EditText) findViewById(R.id.et_login_name);
+        et_username= (EditText) findViewById(R.id.et_register_username);
         et_password= (EditText) findViewById(R.id.et_register_password);
         et_school= (EditText) findViewById(R.id.et_register_school);
         et_phonenumber= (EditText) findViewById(R.id.et_register_phonenumber);
@@ -49,25 +49,29 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     //按钮监听处理函数
     @Override
     public void onClick(View v) {
+        username=et_username.getText().toString().trim();
+        password=et_password.getText().toString().trim();
+        school=et_school.getText().toString().trim();
+        phonenumber=et_phonenumber.getText().toString().trim();
+        verifycode=et_verifycode.getText().toString().trim();
+
         switch (v.getId()){
             case R.id.bt_register_return:
                 startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
                 break;
             case R.id.bt_register_getcode:
-                Toast.makeText(RegisterActivity.this,"验证个毛呀 验证",Toast.LENGTH_LONG).show();
+                Toast.makeText(RegisterActivity.this,"验证个毛呀 验证",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.bt_register_next:
-                phonenumber=et_phonenumber.getText().toString().trim();
-                verifycode=et_verifycode.getText().toString().trim();
                 if(phonenumber.isEmpty()|verifycode.isEmpty())
                 {
-                    Toast.makeText(RegisterActivity.this,"请输入手机号和验证码",Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this,"请输入手机号和验证码",Toast.LENGTH_SHORT).show();
                     break;
                 }
-                Toast.makeText(RegisterActivity.this,"就没有然后啦。。。呆瓜",Toast.LENGTH_LONG).show();
+                Toast.makeText(RegisterActivity.this,"就没有然后啦。。。呆瓜",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.bt_register_nocode:
-                Toast.makeText(RegisterActivity.this,"收不到？？？怪我咯。",Toast.LENGTH_LONG).show();
+                Toast.makeText(RegisterActivity.this,"收不到？？？怪我咯。",Toast.LENGTH_SHORT).show();
                 break;
             default:break;
 
@@ -79,11 +83,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if(isChecked)
         {
-            Toast.makeText(RegisterActivity.this,"你是女生，哥哥的女生。",Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterActivity.this,"你是女生，哥哥的女生。",Toast.LENGTH_SHORT).show();
         }
         else
         {
-            Toast.makeText(RegisterActivity.this,"你是男生，妹妹的男生。",Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterActivity.this,"你是男生，妹妹的男生。",Toast.LENGTH_SHORT).show();
         }
     }
 }

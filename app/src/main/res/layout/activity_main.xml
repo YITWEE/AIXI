@@ -5,21 +5,13 @@
     android:layout_width="wrap_content"
     android:layout_height="fill_parent"
     android:scrollbars="none" >
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:orientation="horizontal" >
-
-        <include layout="@layout/content_main" />
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="@color/black" >
-        </LinearLayout>
+        <include layout="@layout/menu_main"/>
+        <include layout="@layout/content_main"/>
 
     </LinearLayout>
-
 
 </com.yitwee.www.aixi.MySlidingMenu>
