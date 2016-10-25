@@ -8,19 +8,19 @@ import cn.bmob.v3.BmobUser;
 
 public class MyUser extends BmobUser{
     //添加用户信息
-//    private Boolean sex;
+    private Boolean sex;
 //    private String age;
-//    private String school;
+    private String school;
 //    private String college;
 //    private String grade;
 //
-//    public Boolean getSex() {
-//        return sex;
-//    }
-//
-//    public void setSex(Boolean sex) {
-//        this.sex = sex;
-//    }
+    public Boolean getSex() {
+        return sex;
+    }
+
+    public void setSex(Boolean sex) {
+        this.sex = sex;
+    }
 //
 //    public String getAge() {
 //        return age;
@@ -30,13 +30,13 @@ public class MyUser extends BmobUser{
 //        this.age = age;
 //    }
 //
-//    public String getSchool() {
-//        return school;
-//    }
-//
-//    public void setSchool(String school) {
-//        this.school = school;
-//    }
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
 //
 //    public String getCollege() {
 //        return college;
