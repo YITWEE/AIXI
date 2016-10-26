@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         switch (v.getId()){
             case R.id.bt_login_forgetpassword:
-                Toast.makeText(LoginActivity.this,"对不起！！！ 现在无法解决",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(LoginActivity.this,PasswordActivity.class));
                 break;
             case R.id.bt_login_login:
                 number=et_number.getText().toString().trim();
