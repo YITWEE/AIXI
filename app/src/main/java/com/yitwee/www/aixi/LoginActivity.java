@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
@@ -28,6 +29,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Bmob.initialize(this, "a3ee653345dbc5cd52f8e1c628845955");
+
         et_number= (EditText) findViewById(R.id.et_login_phonenumber);
         et_password= (EditText) findViewById(R.id.et_login_password);
         bt_forgetword= (Button) findViewById(R.id.bt_login_forgetpassword);

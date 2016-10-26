@@ -11,6 +11,11 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import cn.bmob.v3.BmobSMS;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.QueryListener;
+import cn.bmob.v3.listener.SaveListener;
+
 import static android.R.id.button1;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener,CompoundButton.OnCheckedChangeListener{
@@ -60,15 +65,45 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
                 break;
             case R.id.bt_register_getcode:
-                Toast.makeText(RegisterActivity.this,"验证个毛呀 验证",Toast.LENGTH_SHORT).show();
+                BmobSMS.requestSMSCode(phonenumber, " reg_aixi", new QueryListener<Integer>() {
+                    @Override
+                    public void done(Integer smsId, BmobException ex) {
+                        if (ex == null) {
+                            //验证码发送成功
+                            Toast.makeText(RegisterActivity.this, "已发送，短信id：" + smsId,Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(RegisterActivity.this, "发送失败！" ,Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
                 break;
             case R.id.bt_register_next:
-                if(phonenumber.isEmpty()|verifycode.isEmpty())
+                if(phonenumber.isEmpty()|| verifycode.isEmpty()|| username.isEmpty()||username.isEmpty()||password.isEmpty()||school.isEmpty())
                 {
-                    Toast.makeText(RegisterActivity.this,"请输入手机号和验证码",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this,"输入信息有误，请检查！",Toast.LENGTH_SHORT).show();
                     break;
+                }else{
+                    MyUser user = new MyUser();
+                    user.setSex(true);    //"sex变量"
+                    user.setSchool(school);
+                    user.setUsername(username);
+                    user.setPassword(password);
+                    user.setMobilePhoneNumber(phonenumber);
+                    user.signOrLogin(verifycode, new SaveListener<MyUser>() {
+                        @Override
+                        public void done(MyUser user,BmobException e) {
+                            if(e==null){
+                                //toast("注册或登录成功");
+                                Toast.makeText(RegisterActivity.this,"注册成功！",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+//                                Log.i("smile", ""+user.getUsername()+"-"+"-"+user.getObjectId());
+                            }else{
+                                Toast.makeText(RegisterActivity.this,"注册失败！",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
                 }
-                Toast.makeText(RegisterActivity.this,"就没有然后啦。。。呆瓜",Toast.LENGTH_SHORT).show();
+
                 break;
             case R.id.bt_register_nocode:
                 Toast.makeText(RegisterActivity.this,"收不到？？？怪我咯。",Toast.LENGTH_SHORT).show();
