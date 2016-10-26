@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     //登陆
                     BmobUser.loginByAccount(number, password, new LogInListener<MyUser>() {
                         @Override
-                        public void done(MyUser user, BmobException e) {
+                        public void done(MyUser user, BmobException e){
                             if(user!=null){
                                 Toast.makeText(LoginActivity.this,"登陆成功！",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(LoginActivity.this,MainActivity.class));

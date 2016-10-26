@@ -5,8 +5,7 @@ import cn.bmob.v3.BmobUser;
 /**
  * Created by Wei DH on 2016/10/24.
  */
-
-public class MyUser extends BmobUser{
+public class MyUser extends BmobUser {
     //添加用户信息
     private Boolean sex;
 //    private String age;
