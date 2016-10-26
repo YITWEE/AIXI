@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:weightSum="30"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <RelativeLayout
+        android:background="@color/backgroud_gray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+  <ImageButton
+      android:id="@+id/ib_menu_main_userlogo"
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:background="@drawable/userlogo"
+      android:src="@mipmap/ic_launcher"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_toRightOf="@id/ib_menu_main_userlogo"
+            android:layout_alignBaseline="@id/ib_menu_main_userlogo"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="100dp">
+            <TextView
+                android:text="Ischool"
+                android:textSize="20sp"
+                android:layout_toRightOf="@id/ib_menu_main_userlogo"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+
+                android:text="我们是走在路上的人"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@id/ib_menu_main_userlogo"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+          <TextView
+              android:text="1000"
+              android:textSize="20sp"
+              android:gravity="center"
+              android:layout_width="100dp"
+              android:layout_height="wrap_content" />
+            <TextView
+                android:text="LV1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="100%"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ListView
+        android:layout_weight="29"
+        android:id="@+id/lv_mainmenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2">
+        <Button
+            android:layout_weight="1"
+            android:text="设置"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_weight="1"
+            android:text="退出"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <ImageView
+            android:id="@+id/iv_mysubmenu1"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <TextView
+            android:text="敬请期待"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:id="@+id/tv_mysubmenu1"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <View
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+</LinearLayout>

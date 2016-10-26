@@ -4,6 +4,7 @@ package com.yitwee.www.aixi;
  * Created by cjb on 2016/10/25.
  */
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
@@ -22,6 +23,7 @@ public class MySlidingMenu extends HorizontalScrollView {
     private int mMenuWidth;
     private int mHalfMenuWidth;
     private boolean once;
+    private boolean isOpen;
     public MySlidingMenu(Context context) {
         super(context);
     }
@@ -29,6 +31,30 @@ public class MySlidingMenu extends HorizontalScrollView {
     public MySlidingMenu(Context context, AttributeSet attrs) {
         super(context, attrs);
         mScreenWidth = ScreenUtils.getScreenWidth(context);
+    }
+    public MySlidingMenu(Context context, AttributeSet attrs, int defStyle)
+    {
+        super(context, attrs, defStyle);
+        mScreenWidth = ScreenUtils.getScreenWidth(context);
+
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
+                R.styleable.MySlidingMenu, defStyle, 0);
+        int n = a.getIndexCount();
+        for (int i = 0; i < n; i++)
+        {
+            int attr = a.getIndex(i);
+            switch (attr)
+            {
+                case R.styleable.MySlidingMenu_rightPadding:
+                    // 默认50
+                    mMenuRightPadding = a.getDimensionPixelSize(attr,
+                            (int) TypedValue.applyDimension(
+                                    TypedValue.COMPLEX_UNIT_DIP, 50f,
+                                    getResources().getDisplayMetrics()));// 默认为10DP
+                    break;
+            }
+        }
+        a.recycle();
     }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
@@ -76,11 +102,54 @@ public class MySlidingMenu extends HorizontalScrollView {
             case MotionEvent.ACTION_UP:
                 int scrollX = getScrollX();
                 if (scrollX > mHalfMenuWidth)
+                {
                     this.smoothScrollTo(mMenuWidth, 0);
+                    isOpen = false;
+                }
                 else
+                {
                     this.smoothScrollTo(0, 0);
+                    isOpen = true;
+                }
                 return true;
         }
         return super.onTouchEvent(ev);
     }
+    /**
+     * 打开菜单
+     */
+    public void openMenu()
+    {
+        if (isOpen)
+            return;
+        this.smoothScrollTo(0, 0);
+        isOpen = true;
+    }
+
+    /**
+     * 关闭菜单
+     */
+    public void closeMenu()
+    {
+        if (isOpen)
+        {
+            this.smoothScrollTo(mMenuWidth, 0);
+            isOpen = false;
+        }
+    }
+
+    /**
+     * 切换菜单状态
+     */
+    public void toggle()
+    {
+        if (isOpen)
+        {
+            closeMenu();
+        } else
+        {
+            openMenu();
+        }
+    }
+
 }
