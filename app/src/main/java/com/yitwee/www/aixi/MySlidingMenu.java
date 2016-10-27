@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 
-import com.yitwee.utils.ScreenUtils;
+import com.yitwee.www.utils.ScreenUtils;
 /**
  * Created by cjb on 2016/10/23.
  */
