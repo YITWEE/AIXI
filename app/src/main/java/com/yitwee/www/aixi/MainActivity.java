@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,10 @@ import java.util.List;
 import cn.bmob.v3.BmobUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private Button bt_main_exit,bt_main_setting;
+    private ImageButton ib_menu_main_userlogo;
+
     private int[] Img_submenu={R.drawable.user,R.drawable.user,R.drawable.user,R.drawable.user,R.drawable.user
             ,R.drawable.user,R.drawable.user};
     private String[] tv_submenu={"i洗衣","i打印","i叫水","i交换","i推送","i校园","i出行"};
@@ -36,22 +41,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mMenulist=getMenulist();
         myMenuAdapter=new MyMenuAdapter(mMenulist,MainActivity.this);
         lv_menu.setAdapter(myMenuAdapter);
+
+        bt_main_exit= (Button) findViewById(R.id.bt_mainmenu_exit);
+        bt_main_setting= (Button) findViewById(R.id.bt_mainmenu_setting);
+        ib_menu_main_userlogo= (ImageButton) findViewById(R.id.ib_menu_main_userlogo);
+
+        bt_main_exit.setOnClickListener(this);
+        bt_main_setting.setOnClickListener(this);
+        ib_menu_main_userlogo.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View v) {
-        mMenu.toggle();
-
-//        switch (v.getId()){
-        //退出登录
-//            case R.id.bt_main_exit:
-//                BmobUser.logOut();
-//                Toast.makeText(MainActivity.this,"当前用户已退出！",Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(MainActivity.this,LoginActivity.class));
-//                break;
-//            default:break;
-//        }
+        switch (v.getId()){
+            case R.id.bt_mainmenu_exit:
+                BmobUser.logOut();
+                Toast.makeText(MainActivity.this,"当前用户已退出！",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                break;
+            case R.id.bt_text:
+                mMenu.toggle();
+                break;
+            case R.id.ib_menu_main_userlogo:
+                startActivity(new Intent(MainActivity.this,PersonalActivity.class));
+                break;
+            default:break;
+        }
 
     }
 

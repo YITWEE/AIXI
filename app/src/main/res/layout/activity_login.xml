@@ -6,7 +6,8 @@
     android:id="@+id/activity_main__login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.yitwee.www.aixi.LoginActivity">
+    tools:context="com.yitwee.www.aixi.LoginActivity"
+    android:weightSum="1">
     <TextView
         android:background="@color/login_blue"
         android:layout_width="match_parent"

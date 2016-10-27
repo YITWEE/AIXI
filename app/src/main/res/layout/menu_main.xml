@@ -4,17 +4,18 @@
     android:orientation="vertical"
     android:weightSum="30"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:baselineAligned="false">
     <RelativeLayout
         android:background="@color/backgroud_gray"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-  <ImageButton
-      android:id="@+id/ib_menu_main_userlogo"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-      android:background="@drawable/userlogo"
-      android:src="@mipmap/ic_launcher"/>
+        <ImageButton
+            android:id="@+id/ib_menu_main_userlogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/userlogo"
+            android:src="@mipmap/ic_launcher"/>
 
         <LinearLayout
             android:orientation="vertical"
@@ -44,12 +45,12 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="40dp">
-          <TextView
-              android:text="1000"
-              android:textSize="20sp"
-              android:gravity="center"
-              android:layout_width="100dp"
-              android:layout_height="wrap_content" />
+            <TextView
+                android:text="1000"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
             <TextView
                 android:text="LV1"
                 android:textSize="20sp"
@@ -80,12 +81,14 @@
         android:layout_height="wrap_content"
         android:weightSum="2">
         <Button
+            android:id="@+id/bt_mainmenu_setting"
             android:layout_weight="1"
             android:text="设置"
             android:textSize="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <Button
+            android:id="@+id/bt_mainmenu_exit"
             android:layout_weight="1"
             android:text="退出"
             android:textSize="20dp"
