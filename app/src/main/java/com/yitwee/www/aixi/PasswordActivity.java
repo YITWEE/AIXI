@@ -8,6 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import cn.bmob.v3.BmobSMS;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.QueryListener;
+import cn.bmob.v3.listener.UpdateListener;
+
 public class PasswordActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText et_password_phonenumber;
     private EditText et_password_verifycode;
@@ -17,7 +23,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
     private Button bt_password_getcode;
     private Button bt_password_commit;
     private Button bt_password_nocode;
-    private String phonenumber,verifycode,password,surepassword;  //该界面的四个变量
+    private String phonenumber,verifycode,newpassword,surepassword;  //该界面的四个变量
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,19 +54,42 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.bt_password_getcode:
             {
-                Toast.makeText(PasswordActivity.this,"我是验证码",Toast.LENGTH_SHORT).show();
+                phonenumber=et_password_phonenumber.getText().toString();
+                BmobSMS.requestSMSCode(phonenumber, " reg_aixi", new QueryListener<Integer>() {
+                    @Override
+                    public void done(Integer smsId, BmobException ex) {
+                        if (ex == null) {
+                            //验证码发送成功
+                            Toast.makeText(PasswordActivity.this,"短信id：" + smsId,Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
             break;
 
             case R.id.bt_password_commit:
             {
-                Toast.makeText(PasswordActivity.this,"我正在提交。。。",Toast.LENGTH_SHORT).show();
+                verifycode=et_password_verifycode.getText().toString();
+                newpassword=et_password_password.getText().toString();
+                BmobUser.resetPasswordBySMSCode(verifycode,newpassword, new UpdateListener() {
+                    @Override
+                    public void done(BmobException ex) {
+                        if(ex==null){
+                            Toast.makeText(PasswordActivity.this,"密码重置成功",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(PasswordActivity.this,LoginActivity.class));
+//                            Log.i("smile", "密码重置成功");
+                        }else{
+                            Toast.makeText(PasswordActivity.this,"密码重置失败",Toast.LENGTH_SHORT).show();
+//                            Log.i("smile", "重置失败：code ="+ex.getErrorCode()+",msg = "+ex.getLocalizedMessage());
+                        }
+                    }
+                });
             }
             break;
 
             case R.id.bt_password_nocode:
             {
-                Toast.makeText(PasswordActivity.this,"我没有得到验证码",Toast.LENGTH_SHORT).show();
+                Toast.makeText(PasswordActivity.this,"Try again!",Toast.LENGTH_SHORT).show();
             }
             break;
 

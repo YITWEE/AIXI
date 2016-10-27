@@ -1,13 +1,19 @@
 package com.yitwee.www.aixi;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.bmob.v3.BmobUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private int[] Img_submenu={R.drawable.user,R.drawable.user,R.drawable.user,R.drawable.user,R.drawable.user
@@ -36,6 +42,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         mMenu.toggle();
+
+//        switch (v.getId()){
+        //退出登录
+//            case R.id.bt_main_exit:
+//                BmobUser.logOut();
+//                Toast.makeText(MainActivity.this,"当前用户已退出！",Toast.LENGTH_SHORT).show();
+//                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+//                break;
+//            default:break;
+//        }
+
     }
 
     public List<MyMenuAdapteruni> getMenulist() {
@@ -47,4 +64,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return menulist;
     }
+
 }
+
