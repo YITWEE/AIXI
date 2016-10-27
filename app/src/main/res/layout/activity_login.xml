@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
+    android:background="@color/backgroud_gray"
     android:orientation="vertical"
     android:id="@+id/activity_main__login"
     android:layout_width="match_parent"
@@ -63,6 +63,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="40dp" />
         <EditText
+            android:inputType="textPassword"
             android:textColor="@color/black"
             android:background="@android:color/transparent"
             android:id="@+id/et_login_password"
@@ -74,13 +75,6 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_alignBaseline="@id/iv_login_unlock"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/black"
-            android:layout_below="@id/et_login_password"
-            android:layout_alignLeft="@id/et_login_password"
-            android:layout_alignRight="@id/et_login_password"/>
     </RelativeLayout>
 
 
@@ -112,4 +106,5 @@
         android:text="注册新账号 >"
         android:textColor="@color/word_gray"
         />
+
 </LinearLayout>

@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="login_blue">#0ba9ba</color>
-    <color name="white">#eeeeee</color>
-    <color name="backgroud_gray">#d1cfcf</color>
+    <color name="white">#ffffff</color>
+    <color name="backgroud_gray">#f9f9f9</color>
     <color name="word_gray">#8e8b8b</color>
     <color name="black">#1d1c1c</color>
 </resources>
