@@ -1,4 +1,4 @@
-package com.yitwee.www.aixi;
+package com.yitwee.www.dataclass;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
