@@ -1,6 +1,7 @@
 package com.yitwee.www.aixi;
 
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobFile;
 
 /**
  * Created by Wei DH on 2016/10/24.
@@ -12,7 +13,25 @@ public class MyUser extends BmobUser {
     private String school;
 //    private String college;
 //    private String grade;
-//
+    private BmobFile headicon;
+    private BmobFile bgimage;
+
+    public BmobFile getBgimage() {
+        return bgimage;
+    }
+
+    public void setBgimage(BmobFile bgimage) {
+        this.bgimage = bgimage;
+    }
+
+    public BmobFile getHeadicon() {
+        return headicon;
+    }
+
+    public void setHeadicon(BmobFile headicon) {
+        this.headicon = headicon;
+    }
+
     public Boolean getSex() {
         return sex;
     }
