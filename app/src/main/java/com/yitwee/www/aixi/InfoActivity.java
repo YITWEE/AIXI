@@ -6,19 +6,37 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 public class InfoActivity extends AppCompatActivity implements View.OnClickListener{
-    private Button bt_info_sure;
+    private LinearLayout ll_info_name,ll_info_sex,ll_info_birthday,ll_info_school,ll_info_living,ll_info_sign;
+    private Button bt_info_sure,bt_info_name,bt_info_personbg;
     private ImageButton ib_info_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
+        ll_info_name= (LinearLayout) findViewById(R.id.ll_info_name);
+        ll_info_sex= (LinearLayout) findViewById(R.id.ll_info_sex);
+        ll_info_birthday= (LinearLayout) findViewById(R.id.ll_info_birthday);
+        ll_info_school= (LinearLayout) findViewById(R.id.ll_info_school);
+        ll_info_living= (LinearLayout) findViewById(R.id.ll_info_living);
+        ll_info_sign= (LinearLayout) findViewById(R.id.ll_info_sign);
         ib_info_back= (ImageButton) findViewById(R.id.ib_info_back);
         bt_info_sure= (Button) findViewById(R.id.bt_info_sure);
+        bt_info_name= (Button) findViewById(R.id.bt_info_head);
+        bt_info_personbg= (Button) findViewById(R.id.bt_info_personbg);
+        ll_info_name.setOnClickListener(this);
+        ll_info_sex.setOnClickListener(this);
+        ll_info_birthday.setOnClickListener(this);
+        ll_info_school.setOnClickListener(this);
+        ll_info_living.setOnClickListener(this);
+        ll_info_sign.setOnClickListener(this);
         ib_info_back.setOnClickListener(this);
         bt_info_sure.setOnClickListener(this);
+        bt_info_name.setOnClickListener(this);
+        bt_info_personbg.setOnClickListener(this);
     }
 
     @Override
@@ -28,7 +46,6 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(InfoActivity.this,PersonalActivity.class));
                 break;
             case R.id.bt_info_sure:
-
                 startActivity(new Intent(InfoActivity.this,PersonalActivity.class));
                 break;
             default:break;

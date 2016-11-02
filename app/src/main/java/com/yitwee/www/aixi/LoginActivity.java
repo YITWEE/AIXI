@@ -2,12 +2,16 @@ package com.yitwee.www.aixi;
 
 import android.content.Intent;
 //import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 //import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import cn.bmob.v3.Bmob;
@@ -25,6 +29,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private String number;
     private String password;
 //    private SharedPreferences sharedPreferences;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +42,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         bt_forgetword= (Button) findViewById(R.id.bt_login_forgetpassword);
         bt_login= (Button) findViewById(R.id.bt_login_login);
         bt_newuser= (Button) findViewById(R.id.bt_login_newuser);
+        Drawable drawable_account = getDrawable(R.mipmap.login_icon_account);
+        drawable_account.setBounds(0,0,48,48);
+        et_number.setCompoundDrawables(drawable_account, null, null, null);//只放左边
+
+        Drawable drawable_password = getDrawable(R.mipmap.login_icon_password);
+        drawable_password.setBounds(0,0,48,48);
+        et_password.setCompoundDrawables(drawable_password, null, null, null);//只放左边
+
+
 //        sharedPreferences=getSharedPreferences("myPref", MODE_PRIVATE);
 //        editor=sharedPreferences.edit();
 //        editor.putString("cjb","123456");

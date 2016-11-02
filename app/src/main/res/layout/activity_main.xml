@@ -2,7 +2,7 @@
 <com.yitwee.www.aixi.MySlidingMenu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:yitwee="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/MyMenu_main_scov"
+    android:id="@+id/MyMenu_main"
     android:layout_width="wrap_content"
     android:layout_height="fill_parent"
     android:scrollbars="none"
@@ -12,8 +12,6 @@
         android:layout_height="fill_parent"
         android:orientation="horizontal" >
         <include layout="@layout/menu_main"/>
-        <include layout="@layout/content_main"/>
-
+        <include layout="@layout/main_layout"/>
     </LinearLayout>
-
 </com.yitwee.www.aixi.MySlidingMenu>

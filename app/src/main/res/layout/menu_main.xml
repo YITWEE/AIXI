@@ -11,23 +11,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageButton
-            android:id="@+id/ib_menu_main_userlogo"
+            android:id="@+id/ib_mainmenu_userlogo"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/userlogo"
             android:src="@mipmap/ic_launcher"/>
-
         <LinearLayout
             android:orientation="vertical"
-            android:layout_toRightOf="@id/ib_menu_main_userlogo"
-            android:layout_alignBaseline="@id/ib_menu_main_userlogo"
+            android:layout_toRightOf="@id/ib_mainmenu_userlogo"
+            android:layout_alignBaseline="@id/ib_mainmenu_userlogo"
             android:layout_width="match_parent"
             android:gravity="center_vertical"
             android:layout_height="100dp">
             <TextView
                 android:text="Ischool"
                 android:textSize="20sp"
-                android:layout_toRightOf="@id/ib_menu_main_userlogo"
+                android:layout_toRightOf="@id/ib_mainmenu_userlogo"
                 android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -38,9 +37,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
-
         <LinearLayout
-            android:layout_below="@id/ib_menu_main_userlogo"
+            android:layout_below="@id/ib_mainmenu_userlogo"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -49,35 +47,37 @@
                 android:text="1000"
                 android:textSize="20sp"
                 android:gravity="center"
+                android:textColor="@color/black"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
             <TextView
                 android:text="LV1"
                 android:textSize="20sp"
                 android:gravity="center"
+                android:textColor="@color/black"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
-
             <TextView
                 android:text="100%"
                 android:textSize="20sp"
                 android:gravity="center"
+                android:textColor="@color/black"
                 android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView2" />
-
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </RelativeLayout>
 
     <ListView
-        android:layout_weight="29"
         android:id="@+id/lv_mainmenu"
+        android:layout_weight="29"
+        android:background="@mipmap/login_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </ListView>
 
     <LinearLayout
         android:layout_weight="1"
+        android:background="@color/white"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

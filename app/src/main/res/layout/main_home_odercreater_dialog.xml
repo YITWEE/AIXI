@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/home_ordercreater_dialog_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="我要洗衣"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:background="@drawable/home_ordercreater_dialog_head_bg"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+        <EditText
+            android:id="@+id/et_ordercreater_dialog_location"
+            android:inputType="textAutoComplete"
+            android:hint="你的寝室"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/word_gray"
+            android:gravity="center"
+            android:background="@drawable/home_ordercreater_dialog_item_bg"
+            android:maxLines="1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+        <EditText
+            android:id="@+id/et_ordercreater_dialog_name"
+            android:inputType="textAutoComplete"
+            android:hint="你的简称"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/word_gray"
+            android:gravity="center"
+            android:background="@drawable/home_ordercreater_dialog_item_bg"
+            android:maxLines="1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+        <EditText
+            android:id="@+id/et_ordercreater_dialog_phonenumber"
+            android:inputType="phone"
+            android:hint="你的电话号码"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/word_gray"
+            android:gravity="center"
+            android:background="@drawable/home_ordercreater_dialog_item_bg"
+            android:maxLines="1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+        <EditText
+            android:id="@+id/et_ordercreater_dialog_remark"
+            android:inputType="textAutoComplete"
+            android:hint="备注"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/word_gray"
+            android:gravity="center"
+            android:background="@drawable/home_ordercreater_dialog_item_bg"
+            android:maxLines="1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <RadioGroup
+                android:id="@+id/rg_order_dialog_order_style"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="300dp"
+                android:layout_height="match_parent">
+                <RadioButton
+                    android:id="@+id/rb_order_dialog_style_instant"
+                    android:text="马上洗衣"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:maxLines="1"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content" />
+
+                <RadioButton
+                    android:id="@+id/rb_order_dialog_style_booking"
+                    android:text="预约"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:maxLines="1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/et_order_dialog_time"
+                android:layout_weight="3"
+                android:inputType="time"
+                android:gravity="center"
+                android:hint="时间"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+            <TableRow
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:layout_height="40dp">
+                <TextView
+                    android:text="类型"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+                <TextView
+                    android:text="水洗"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"  />
+                <TextView
+                    android:text="干洗"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"  />
+                <TextView
+                    android:text="手洗"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"  />
+                <TextView
+                    android:text="脱水"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"  />
+                <TextView
+                    android:text="烘干"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent">
+                <TextView
+                    android:text="数量"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <EditText
+                    android:hint="0"
+                    android:inputType="number"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/editText3" />
+
+                <EditText
+                    android:hint="0"
+                    android:inputType="number"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <EditText
+                    android:hint="0"
+                    android:inputType="number"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <EditText
+                    android:hint="0"
+                    android:inputType="number"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <EditText
+                    android:hint="0"
+                    android:inputType="number"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/editText" />
+            </TableRow>
+        </TableLayout>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:text="需要商家提供："
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_weight="2"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textView4" />
+
+            <TextView
+                android:text="洗衣液"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <EditText
+                android:hint="0"
+                android:inputType="number"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/editText2" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:text=""
+                android:textSize="18sp"
+                android:layout_weight="2"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:text="洗衣粉"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <EditText
+                android:hint="0"
+                android:inputType="number"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:id="@+id/tv_home_ordercreater_state_no"
+            android:text="取消发单"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/home_ordercreater_sure_dialog_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/tv_home_ordercreater_state_yes"
+            android:text="确定发单"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/home_ordercreater_sure_dialog_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>

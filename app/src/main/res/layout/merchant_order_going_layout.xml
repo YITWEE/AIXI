@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+            <TextView
+                android:id="@+id/tv_merchant_order_going_content"
+                android:text="A区六舍472         水洗x1+洗衣液x1"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp" />
+            <TextView
+                android:id="@+id/tv_merchant_order_going_remark"
+                android:text="尽快过来取衣服哦"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" />
+            <TextView
+                android:id="@+id/tv_merchant_order_going_phonenumber"
+                android:text="15310571287  (张同学)"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" />
+        </LinearLayout>
+        <View
+            android:layout_margin="3dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@mipmap/base_horization_line" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_merchant_order_going_style"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="即时订单"
+                android:textColor="@color/main_content_word_red"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/tv_merchant_order_going_price"
+                android:text="5.5"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <LinearLayout
+                android:layout_weight="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="信息费"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/tv_merchant_order_going_tip"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0.60"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@mipmap/base_horization_line" />
+</LinearLayout>

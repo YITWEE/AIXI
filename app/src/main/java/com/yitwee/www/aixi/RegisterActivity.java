@@ -1,12 +1,16 @@
 package com.yitwee.www.aixi;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,37 +23,58 @@ import cn.bmob.v3.listener.SaveListener;
 import static android.R.id.button1;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener,CompoundButton.OnCheckedChangeListener{
-    private Switch st_sex;
+  //  private Switch st_sex;
     private EditText et_username;
     private EditText et_password;
+    private EditText et_surepassword;
     private EditText et_school;
     private EditText et_phonenumber;
     private EditText et_verifycode;
-    private Button bt_return;
+    private ImageButton ib_return;
     private Button bt_getcode;
     private Button bt_next;
     private Button bt_nocode;
     private String username,password,school,phonenumber,verifycode;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        st_sex= (Switch) findViewById(R.id.st_register_sex);
+       // st_sex= (Switch) findViewById(R.id.st_register_sex);
         et_username= (EditText) findViewById(R.id.et_register_username);
         et_password= (EditText) findViewById(R.id.et_register_password);
+        et_surepassword=(EditText) findViewById(R.id.et_register_surepassword);
         et_school= (EditText) findViewById(R.id.et_register_school);
         et_phonenumber= (EditText) findViewById(R.id.et_register_phonenumber);
         et_verifycode= (EditText) findViewById(R.id.et_register_verifycode);
-        bt_return= (Button) findViewById(R.id.bt_register_return);
+        ib_return= (ImageButton) findViewById(R.id.ib_register_return);
         bt_getcode= (Button) findViewById(R.id.bt_register_getcode);
         bt_next= (Button) findViewById(R.id.bt_register_next);
         bt_nocode= (Button) findViewById(R.id.bt_register_nocode);
-        bt_return.setOnClickListener(this);
+
+        Drawable drawable_account = getDrawable(R.mipmap.login_icon_account);
+        drawable_account.setBounds(0,0,48,48);
+        et_username.setCompoundDrawables(drawable_account, null, null, null);//只放左边
+
+        Drawable drawable_password = getDrawable(R.mipmap.login_icon_password);
+        drawable_password.setBounds(0,0,48,48);
+        et_password.setCompoundDrawables(drawable_password, null, null, null);//只放左边
+        et_surepassword.setCompoundDrawables(drawable_password, null, null, null);//只放左边
+
+        Drawable drawable_school = getDrawable(R.drawable.school_24);
+        drawable_school.setBounds(0,0,48,48);
+        et_school.setCompoundDrawables(drawable_school, null, null, null);//只放左边
+
+        Drawable drawable_phone = getDrawable(R.drawable.mobile_24);
+        drawable_phone.setBounds(0,0,48,48);
+        et_phonenumber.setCompoundDrawables(drawable_phone, null, null, null);//只放左边
+
+        ib_return.setOnClickListener(this);
         bt_getcode.setOnClickListener(this);
         bt_next.setOnClickListener(this);
         bt_nocode.setOnClickListener(this);
-        st_sex.setOnCheckedChangeListener(this);
+      //  st_sex.setOnCheckedChangeListener(this);
     }
     //按钮监听处理函数
     @Override
@@ -61,7 +86,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         verifycode=et_verifycode.getText().toString().trim();
 
         switch (v.getId()){
-            case R.id.bt_register_return:
+            case R.id.ib_register_return:
                 startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
                 break;
             case R.id.bt_register_getcode:
