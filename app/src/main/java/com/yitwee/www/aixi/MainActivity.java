@@ -5,15 +5,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.Space;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,13 +25,16 @@ import java.util.List;
 
 import cn.bmob.v3.BmobUser;
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener{
+public class MainActivity extends FragmentActivity implements View.OnClickListener,ViewPager.OnPageChangeListener{
     private ViewPager main_content_mViewPaper;
     private FragmentPagerAdapter main_content_mAapter;
     private List<Fragment> main_content_mDatas;
+    private List<String> off_online_statedata;
 
     private Button bt_main_exit,bt_main_setting;
     private ImageButton ib_menu_main_userlogo;
+    private Spinner sp_main_head_online;
+    private ArrayAdapter<String> sp_main_head_online_arr_adapter;
 
     private ImageView iv_main_bottom_home,iv_main_bottom_order,iv_main_bottom_user;
     private TextView tv_main_head_bar_title,tv_main_head_bar_switcher;
@@ -44,6 +50,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private ListView lv_menu;
     private MyMenuAdapter myMenuAdapter;
 
+    private Space sp_main_menu_right_free;
+
     private int currentpapernumber,peoplerole=0;
     //0代表顾客 1代表商家  默认为0
 
@@ -52,9 +60,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mMenu = (MySlidingMenu) findViewById(R.id.MyMenu_main);
+        sp_main_menu_right_free= (Space) findViewById(R.id.sp_main_menu_right_free);
         ib_main_menu= (ImageButton) findViewById(R.id.ib_main_menu);
         lv_menu= (ListView) findViewById(R.id.lv_mainmenu);
         ib_main_menu.setOnClickListener(this);
+        sp_main_menu_right_free.setOnClickListener(this);
         mMenulist=getMenulist();
         myMenuAdapter=new MyMenuAdapter(mMenulist,MainActivity.this);
         lv_menu.setAdapter(myMenuAdapter);
@@ -62,6 +72,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         bt_main_exit= (Button) findViewById(R.id.bt_mainmenu_exit);
         bt_main_setting= (Button) findViewById(R.id.bt_mainmenu_setting);
         ib_menu_main_userlogo= (ImageButton) findViewById(R.id.ib_mainmenu_userlogo);
+        sp_main_head_online= (Spinner) findViewById(R.id.sp_main_head_online);
 
         iv_main_bottom_home= (ImageView) findViewById(R.id.iv_main_bottom_home);
         iv_main_bottom_order= (ImageView) findViewById(R.id.iv_main_bottom_order);
@@ -73,7 +84,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         tv_main_head_bar_title= (TextView) findViewById(R.id.tv_main_head_bar_title);
         tv_main_head_bar_switcher= (TextView) findViewById(R.id.tv_main_head_bar_switcher);
 
+        mMenu.setVisibility(View.GONE);
         initView();
+        off_online_statedata=new ArrayList<String>();
+        off_online_statedata.add("在线");off_online_statedata.add("离线");
+        sp_main_head_online_arr_adapter=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, off_online_statedata);
+        sp_main_head_online_arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp_main_head_online.setAdapter(sp_main_head_online_arr_adapter);
 
         bt_main_exit.setOnClickListener(this);
         bt_main_setting.setOnClickListener(this);
@@ -121,6 +138,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 startActivity(new Intent(MainActivity.this,LoginActivity.class));
                 break;
             case R.id.ib_main_menu:
+                mMenu.setVisibility(View.VISIBLE);
                 mMenu.toggle();
                 break;
             case R.id.ib_mainmenu_userlogo:
@@ -154,6 +172,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 if(peoplerole==1)peoplerole=0;
                 else peoplerole=1;
                 main_content_mViewPaper.setCurrentItem(currentpapernumber+peoplerole*3);
+            case R.id.sp_main_menu_right_free:
+                mMenu.toggle();
+                mMenu.setVisibility(View.GONE);
             default:break;
         }
 
@@ -167,6 +188,21 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             menulist.add(new MyMenuAdapteruni(Img_submenu[i],tv_submenu[i]));
         }
         return menulist;
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 }
 

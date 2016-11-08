@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/login_bg"
     tools:context="com.yitwee.www.aixi.Main_User_Fragment">
     <TextView
         android:text="hello world"

@@ -2,9 +2,7 @@
 <resources>
 
     <attr name="rightPadding" format="dimension" />
-
     <declare-styleable name="MySlidingMenu">
         <attr name="rightPadding" />
     </declare-styleable>
-
 </resources>

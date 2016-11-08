@@ -10,7 +10,7 @@
     <TextView
         android:background="@color/login_blue"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:text="登陆"
         android:gravity="center"
         android:textSize="20sp"
@@ -18,10 +18,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:background="@drawable/login_input_bg"
         android:orientation="vertical" >
-
         <EditText
             android:id="@+id/et_login_phonenumber"
             android:hint="@string/login_username_hint"

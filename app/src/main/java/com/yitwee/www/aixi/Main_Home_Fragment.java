@@ -41,7 +41,14 @@ public class Main_Home_Fragment extends Fragment implements View.OnClickListener
 
                     @Override
                     public void okButtonClick() {
-                        Toast.makeText(getContext(),"订单发布成功",Toast.LENGTH_SHORT).show();
+
+                        Toast.makeText(getContext(),"订单发布成功 水洗："+main_home_order_creater_dialog.Int_num_wash
+                                +"干洗："+main_home_order_creater_dialog.Int_num_dry_wash
+                                +"脱水："+main_home_order_creater_dialog.Int_num_water
+                                +"烘干："+main_home_order_creater_dialog.Int_num_dry
+                                +"洗衣粉："+main_home_order_creater_dialog.Int_num_detergent
+                                +"洗衣液："+main_home_order_creater_dialog.Int_num_laundry_detergent
+                                ,Toast.LENGTH_SHORT).show();
                         Log.i("debug", "ok button click");
                     }
                     @Override

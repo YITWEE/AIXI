@@ -1,5 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@mipmap/login_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.yitwee.www.aixi.Main_User_Fragment">
@@ -27,17 +28,21 @@
                     android:layout_height="29dp" />
             </LinearLayout>
             <View
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="3dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@mipmap/base_horization_line" />
             <ListView
                 android:id="@+id/lv_merchant_main_user_order_going"
+                android:background="@mipmap/login_bg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             </ListView>
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@mipmap/base_horization_line" />
         <LinearLayout
             android:orientation="vertical"
             android:layout_weight="1"
@@ -58,13 +63,13 @@
                     android:layout_height="29dp" />
             </LinearLayout>
             <View
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="3dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@mipmap/base_horization_line" />
             <ListView
                 android:id="@+id/lv_merchant_main_user_order_over"
+                android:background="@mipmap/login_bg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             </ListView>

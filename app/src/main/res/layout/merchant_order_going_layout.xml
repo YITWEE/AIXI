@@ -3,15 +3,19 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@mipmap/base_horization_line" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="60dp">
         <LinearLayout
             android:layout_weight="1"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="80dp">
+            android:layout_height="60dp">
             <TextView
                 android:id="@+id/tv_merchant_order_going_content"
                 android:text="A区六舍472         水洗x1+洗衣液x1"
@@ -20,7 +24,7 @@
                 android:gravity="center_vertical"
                 android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp" />
+                android:layout_height="20dp" />
             <TextView
                 android:id="@+id/tv_merchant_order_going_remark"
                 android:text="尽快过来取衣服哦"
@@ -43,7 +47,7 @@
                 android:layout_height="20dp" />
         </LinearLayout>
         <View
-            android:layout_margin="3dp"
+            android:layout_margin="4dp"
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@mipmap/base_horization_line" />
@@ -55,7 +59,7 @@
             android:layout_height="match_parent">
             <TextView
                 android:id="@+id/tv_merchant_order_going_style"
-                android:layout_weight="3"
+                android:layout_weight="4"
                 android:gravity="center"
                 android:text="即时订单"
                 android:textColor="@color/main_content_word_red"
@@ -66,12 +70,12 @@
                 android:text="5.5"
                 android:textSize="18dp"
                 android:textColor="@color/black"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <LinearLayout
-                android:layout_weight="3"
+                android:layout_weight="4"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -94,9 +98,8 @@
         </LinearLayout>
     </LinearLayout>
     <View
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:background="@mipmap/base_horization_line" />
 </LinearLayout>

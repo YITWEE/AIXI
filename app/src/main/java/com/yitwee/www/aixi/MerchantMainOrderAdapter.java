@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -59,7 +60,6 @@ public class MerchantMainOrderAdapter extends BaseAdapter {
         holder.textView_style.setText(Merchant_Customer_order_list.get(position).order_style);
         holder.textView_time.setText(Merchant_Customer_order_list.get(position).order_time);
         if(Merchant_Customer_order_list.get(position).order_style.equals("即时订单"))
-            holder.textView_time.setVisibility(View.GONE);
         holder.textView_content.setText(Merchant_Customer_order_list.get(position).order_content);
         holder.textView_remark.setText(Merchant_Customer_order_list.get(position).order_remark);
         holder.textView_price.setText(Merchant_Customer_order_list.get(position).order_price);

@@ -8,6 +8,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
@@ -91,7 +92,6 @@ public class MySlidingMenu extends HorizontalScrollView {
             once = true;
         }
     }
-
     @Override
     public boolean onTouchEvent(MotionEvent ev)
     {
@@ -99,11 +99,19 @@ public class MySlidingMenu extends HorizontalScrollView {
         switch (action)
         {
             // Up时，进行判断，如果显示区域大于菜单宽度一半则完全显示，否则隐藏
+       /*     case MotionEvent.ACTION_DOWN:
+                 if(ev.getX()>mMenuWidth&&isOpen){
+                     this.smoothScrollTo(mMenuWidth, 0);
+                     this.setVisibility(View.GONE);
+                     isOpen = false;
+                 }
+                return true;*/
             case MotionEvent.ACTION_UP:
                 int scrollX = getScrollX();
                 if (scrollX > mHalfMenuWidth)
                 {
                     this.smoothScrollTo(mMenuWidth, 0);
+                    this.setVisibility(View.GONE);
                     isOpen = false;
                 }
                 else
@@ -137,7 +145,6 @@ public class MySlidingMenu extends HorizontalScrollView {
             isOpen = false;
         }
     }
-
     /**
      * 切换菜单状态
      */

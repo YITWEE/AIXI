@@ -8,111 +8,12 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/iv_main_order_ad"
+        <ListView
+            android:id="@+id/lv_main_order_list"
+            android:background="@mipmap/login_bg"
+            android:layoutMode="opticalBounds"
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
-        <LinearLayout
-            android:background="@color/backgroud_gray"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:weightSum="2">
-            <LinearLayout
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:text="当前库存"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:id="@+id/tv_main_orde_reserve"
-                    android:layout_marginLeft="10dp"
-                    android:text="99"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@mipmap/base_horization_line" />
-            <LinearLayout
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:text="好评率"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:id="@+id/tv_main_orde_date"
-                    android:layout_marginLeft="10dp"
-                    android:text="100%"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:background="@color/backgroud_gray"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="80dp">
-            <TextView
-                android:text="当前可发单类型："
-                android:textColor="@color/black"
-                android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <LinearLayout
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:text="水洗"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="干洗"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="手洗"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="烘干"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="脱水"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@mipmap/base_horization_line" />
+            android:layout_height="match_parent">
+        </ListView>
     </LinearLayout>
 </FrameLayout>
