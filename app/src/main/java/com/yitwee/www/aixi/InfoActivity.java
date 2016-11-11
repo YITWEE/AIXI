@@ -43,10 +43,12 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.ib_info_back:
-                startActivity(new Intent(InfoActivity.this,PersonalActivity.class));
+                finish();
+               // startActivity(new Intent(InfoActivity.this,PersonalActivity.class));
                 break;
             case R.id.bt_info_sure:
-                startActivity(new Intent(InfoActivity.this,PersonalActivity.class));
+                finish();
+                //startActivity(new Intent(InfoActivity.this,PersonalActivity.class));
                 break;
             default:break;
         }

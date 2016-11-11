@@ -24,7 +24,8 @@ public class PersonalActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.ib_personal_back:
-                startActivity(new Intent(PersonalActivity.this,MainActivity.class));
+                finish();
+               // startActivity(new Intent(PersonalActivity.this,MainActivity.class));
                 break;
             case R.id.ib_personal_edit:
                 startActivity(new Intent(PersonalActivity.this,InfoActivity.class));

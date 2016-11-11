@@ -73,7 +73,7 @@ public class MerchantMainOrderAdapter extends BaseAdapter {
         holder.textView_receive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"您接受了第"+ pos+"条订单",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,"您接受了第"+ (pos+1)+"条订单",Toast.LENGTH_SHORT).show();
                 Merchant_Customer_order_list.remove(pos);
                 notifyDataSetChanged();
                 order_listview.turnNormal();
@@ -82,7 +82,7 @@ public class MerchantMainOrderAdapter extends BaseAdapter {
         holder.textView_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"第"+ pos+"条订单被删除了",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,"第"+ (pos+1)+"条订单被删除了",Toast.LENGTH_SHORT).show();
                 Merchant_Customer_order_list.remove(pos);
                 notifyDataSetChanged();
                 order_listview.turnNormal();

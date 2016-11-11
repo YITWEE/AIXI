@@ -19,6 +19,8 @@ import com.yitwee.www.utils.ScreenUtils;
  */
 
 public class MySlidingMenu extends HorizontalScrollView {
+    private int mDownX;//手指初次按下的X坐标
+    private int mDownY;//手指初次按下的Y坐标
     private int mScreenWidth;
     private int mMenuRightPadding = 100;
     private int mMenuWidth;
@@ -157,6 +159,13 @@ public class MySlidingMenu extends HorizontalScrollView {
         {
             openMenu();
         }
+    }
+    /**
+    * 获取菜单状态
+     */
+    public boolean getisOpen()
+    {
+        return isOpen;
     }
 
 }

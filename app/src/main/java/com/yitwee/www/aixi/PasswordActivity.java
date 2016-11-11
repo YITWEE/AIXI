@@ -63,17 +63,23 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
+        verifycode=et_password_verifycode.getText().toString();
+        newpassword=et_password_password.getText().toString();
+        phonenumber=et_password_phonenumber.getText().toString();
         switch (v.getId())
         {
             case R.id.ib_password_return:
             {
-                startActivity(new Intent(PasswordActivity.this,LoginActivity.class));
+                Intent data=new Intent();
+                data.addFlags(0);
+                setResult(0,data);
+                finish();
+                //startActivity(new Intent(PasswordActivity.this,LoginActivity.class));
             }
             break;
 
             case R.id.bt_password_getcode:
             {
-                phonenumber=et_password_phonenumber.getText().toString();
                 BmobSMS.requestSMSCode(phonenumber, " reg_aixi", new QueryListener<Integer>() {
                     @Override
                     public void done(Integer smsId, BmobException ex) {
@@ -88,14 +94,17 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.bt_password_commit:
             {
-                verifycode=et_password_verifycode.getText().toString();
-                newpassword=et_password_password.getText().toString();
+
                 BmobUser.resetPasswordBySMSCode(verifycode,newpassword, new UpdateListener() {
                     @Override
                     public void done(BmobException ex) {
                         if(ex==null){
                             Toast.makeText(PasswordActivity.this,"密码重置成功",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(PasswordActivity.this,LoginActivity.class));
+                            Intent data=new Intent();
+                            data.putExtra("name",phonenumber);
+                            setResult(1,data);
+                            finish();
+                            //startActivity(new Intent(PasswordActivity.this,LoginActivity.class));
 //                            Log.i("smile", "密码重置成功");
                         }else{
                             Toast.makeText(PasswordActivity.this,"密码重置失败",Toast.LENGTH_SHORT).show();
