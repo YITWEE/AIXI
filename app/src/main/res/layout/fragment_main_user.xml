@@ -1,5 +1,9 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,8 +12,9 @@
     <ImageView
         android:background="@drawable/weather"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="180dp" />
     <TextView
+        android:id="@+id/tv_main_user_advertisement"
         android:drawableLeft="@drawable/advertisement"
         android:drawablePadding="10dp"
         android:paddingLeft="5dp"
@@ -39,6 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <TextView
+            android:id="@+id/tv_main_user_allorders"
             android:paddingRight="10dp"
             android:text="全部订单"
             android:textSize="15dp"
@@ -60,21 +66,25 @@
             android:layout_width="match_parent"
             android:layout_height="60dp">
             <ImageView
+                android:id="@+id/iv_main_user_nopay"
                 android:layout_weight="1"
                 android:src="@mipmap/ic_launcher"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <ImageView
+                android:id="@+id/iv_main_user_noappraise"
                 android:layout_weight="1"
                 android:src="@mipmap/ic_launcher"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <ImageView
+                android:id="@+id/iv_main_user_aftersale"
                 android:layout_weight="1"
                 android:src="@mipmap/ic_launcher"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <ImageView
+                android:id="@+id/iv_main_user_collection"
                 android:layout_weight="1"
                 android:src="@mipmap/ic_launcher"
                 android:layout_width="match_parent"
@@ -86,24 +96,28 @@
             android:layout_width="match_parent"
             android:layout_height="20dp">
             <TextView
+                android:id="@+id/tv_main_user_nopay"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:text="待付款"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <TextView
+                android:id="@+id/tv_main_user_noappraise"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:text="待评价"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <TextView
+                android:id="@+id/tv_main_user_aftersale"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:text="退款/售后"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <TextView
+                android:id="@+id/tv_main_user_collection"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:text="收藏的商家"
@@ -130,6 +144,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <TextView
+            android:id="@+id/tv_main_user_coupon"
             android:paddingRight="10dp"
             android:text=""
             android:textSize="15dp"
@@ -139,10 +154,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@mipmap/base_horization_line" />
     <LinearLayout
         android:gravity="center_vertical"
         android:layout_marginLeft="3dp"
@@ -161,6 +172,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <TextView
+            android:id="@+id/tv_main_user_balance"
             android:paddingRight="10dp"
             android:text="0"
             android:textSize="15dp"
@@ -170,10 +182,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@mipmap/base_horization_line" />
     <LinearLayout
         android:gravity="center_vertical"
         android:layout_marginLeft="3dp"
@@ -192,6 +200,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <TextView
+            android:id="@+id/tv_main_user_integral"
             android:paddingRight="10dp"
             android:text=""
             android:textSize="15dp"
@@ -220,6 +229,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <TextView
+            android:id="@+id/tv_main_user_share"
             android:paddingRight="10dp"
             android:text="微信/QQ/微博"
             android:textSize="15dp"
@@ -230,3 +240,4 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>
+</ScrollView>

@@ -1,105 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="@color/white"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal">
     <LinearLayout
-        android:orientation="horizontal"
-        android:background="@mipmap/login_bg"
-        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="29dp">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_weight="1"
+            android:background="@mipmap/login_bg"
             android:gravity="center_vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/merchant_customer_order_style"
-                android:text="预约订单"
-                android:textSize="18dp"
-                android:textColor="@color/black"
-                android:layout_marginLeft="20dp"
-                android:gravity="center"
-                android:background="@drawable/merchant_main_order_order"
-                android:layout_width="120dp"
-                android:layout_height="30dp" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/et_merchant_customer_order_time"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:ems="10"
-                android:hint="时间"
-                android:textSize="18dp"
-                android:inputType="time" />
-        </LinearLayout>
-    </LinearLayout>
-    <ProgressBar
-        android:id="@+id/vi_merchant_customer_order_progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:max="100"
-        android:background="@mipmap/base_horization_line"
-        android:layout_width="match_parent"
-        android:layout_height="3dp" />
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-        <LinearLayout
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <TextView
-                android:id="@+id/tv_merchant_customer_order_content"
-                android:text="A区六舍472         水洗x1+洗衣液x1"
-                android:textSize="18dp"
-                android:textColor="@color/black"
-                android:gravity="center_vertical"
-                android:layout_marginLeft="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp" />
-            <TextView
-                android:id="@+id/tv_merchant_customer_order_remark"
-                android:text="尽快过来去衣服哦"
-                android:textSize="15dp"
-                android:textColor="@color/black"
+            android:layout_height="29dp">
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/merchant_customer_order_style"
+                    android:text="预约订单"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:background="@drawable/merchant_main_order_order"
+                    android:layout_width="120dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/et_merchant_customer_order_time"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:hint="时间"
+                    android:textSize="18dp"
+                    android:inputType="time" />
+            </LinearLayout>
+        </LinearLayout>
+        <ProgressBar
+            android:id="@+id/vi_merchant_customer_order_progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="100"
+            android:background="@mipmap/base_horization_line"
+            android:layout_width="match_parent"
+            android:layout_height="3dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <TextView
+                    android:id="@+id/tv_merchant_customer_order_content"
+                    android:text="A区六舍472         水洗x1+洗衣液x1"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp" />
+                <TextView
+                    android:id="@+id/tv_merchant_customer_order_remark"
+                    android:text="尽快过来去衣服哦"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp" />
+            </LinearLayout>
+            <View
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@mipmap/base_horization_line" />
+            <TextView
+                android:id="@+id/tv_merchant_customer_order_price"
+                android:text="5.5"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_weight="3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </LinearLayout>
         <View
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@mipmap/base_horization_line" />
-        <TextView
-            android:id="@+id/tv_merchant_customer_order_price"
-            android:text="5.5"
-            android:textSize="18dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_weight="3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="2dp"
+            android:background="@mipmap/base_horization_line" />
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginBottom="5dp"
-        android:background="@mipmap/base_horization_line" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="180dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_merchant_customer_order_receive"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:background="#1ee166"
+            android:textColor="#eeeeee"
+            android:text="接单" />
+        <TextView
+            android:id="@+id/tv_merchant_customer_order_delete"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:background="#e53935"
+            android:textColor="#eeeeee"
+            android:text="删除" />
+    </LinearLayout>
 </LinearLayout>

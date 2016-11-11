@@ -20,7 +20,7 @@ import com.yitwee.www.utils.ScreenUtils;
 
 public class MySlidingMenu extends HorizontalScrollView {
     private int mScreenWidth;
-    private int mMenuRightPadding = 50;
+    private int mMenuRightPadding = 100;
     private int mMenuWidth;
     private int mHalfMenuWidth;
     private boolean once;

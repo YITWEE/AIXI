@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.Space;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,8 +26,8 @@ import java.util.List;
 
 import cn.bmob.v3.BmobUser;
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener,ViewPager.OnPageChangeListener{
-    private ViewPager main_content_mViewPaper;
+public class MainActivity extends FragmentActivity implements View.OnClickListener{
+    private MyMainViewPager main_content_mViewPaper;
     private FragmentPagerAdapter main_content_mAapter;
     private List<Fragment> main_content_mDatas;
     private List<String> off_online_statedata;
@@ -100,9 +101,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         iv_main_bottom_user.setOnClickListener(this);
         tv_main_head_bar_switcher.setOnClickListener(this);
     }
-
     private void initView() {
-        main_content_mViewPaper= (ViewPager) findViewById(R.id.vp_main_paper);
+        main_content_mViewPaper= (MyMainViewPager) findViewById(R.id.vp_main_paper);
         main_content_mDatas=new ArrayList<Fragment>();
         Main_Home_Fragment home=new Main_Home_Fragment();
         Main_Order_Fragment order=new Main_Order_Fragment();
@@ -127,6 +127,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             }
         };
         main_content_mViewPaper.setAdapter(main_content_mAapter);
+        main_content_mViewPaper.setScanScroll(false);
     }
 
     @Override
@@ -177,9 +178,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 mMenu.setVisibility(View.GONE);
             default:break;
         }
-
     }
-
     public List<MyMenuAdapteruni> getMenulist() {
 
         List<MyMenuAdapteruni> menulist=new ArrayList<>();
@@ -188,21 +187,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             menulist.add(new MyMenuAdapteruni(Img_submenu[i],tv_submenu[i]));
         }
         return menulist;
-    }
-
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
     }
 }
 

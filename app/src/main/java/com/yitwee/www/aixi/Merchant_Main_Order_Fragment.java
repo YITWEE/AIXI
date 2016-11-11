@@ -3,6 +3,7 @@ package com.yitwee.www.aixi;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +19,9 @@ import java.util.List;
  */
 
 public class Merchant_Main_Order_Fragment extends Fragment implements AdapterView.OnItemClickListener {
+    private static final String TAG = "Merchant_Main_Order_Fragment";
     private Context context;
-    private ListView order_listview;
+    private SideslipListView order_listview;
     private List<Merchant_Customer_Order> ordersdatalist;
     private MerchantMainOrderAdapter merchantMainOrderAdapter;
 
@@ -32,10 +34,10 @@ public class Merchant_Main_Order_Fragment extends Fragment implements AdapterVie
                              Bundle savedInstanceState) {
         View view;
         view = inflater.inflate(R.layout.merchant_fragment_main_order, container, false);
-        order_listview = (ListView) view.findViewById(R.id.lv_merchant_main_order_list);
+        order_listview = (SideslipListView) view.findViewById(R.id.lv_merchant_main_order_list);
         ordersdatalist = new ArrayList<>();
         initorderlist();
-        merchantMainOrderAdapter = new MerchantMainOrderAdapter(ordersdatalist, context);
+        merchantMainOrderAdapter = new MerchantMainOrderAdapter(ordersdatalist,order_listview,context);
         order_listview.setAdapter(merchantMainOrderAdapter);
         order_listview.setOnItemClickListener(this);
         return view;
@@ -63,7 +65,8 @@ public class Merchant_Main_Order_Fragment extends Fragment implements AdapterVie
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(context,"这是第"+(1+position)+"条订单",Toast.LENGTH_SHORT).show();
+        if (order_listview.isAllowItemClick()) {
+            Toast.makeText(getContext(), position+ "被点击了",Toast.LENGTH_SHORT).show();
+        }
     }
-
 }
