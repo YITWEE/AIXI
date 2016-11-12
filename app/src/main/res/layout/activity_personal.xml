@@ -8,28 +8,13 @@
     android:weightSum="2"
     android:orientation="vertical"
     tools:context="com.yitwee.www.aixi.PersonalActivity">
+
     <RelativeLayout
-        android:background="@color/backgroud_gray"
         android:layout_weight="1"
+        android:background="@drawable/user_home_head_bg"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageButton
-            android:id="@+id/ib_personal_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <ImageButton
-            android:id="@+id/ib_personal_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true" />
-
+        android:layout_height="wrap_content">
+        <include layout="@layout/home_user_info_head_bar"/>
         <LinearLayout
             android:id="@+id/ll_property_value"
             android:layout_alignParentBottom="true"
@@ -42,6 +27,7 @@
             <TextView
                 android:layout_weight="1"
                 android:text="1000"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:gravity="center"
                 android:layout_width="100dp"
@@ -49,6 +35,7 @@
             <TextView
                 android:layout_weight="1"
                 android:text="LV1"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:gravity="center"
                 android:layout_width="100dp"
@@ -56,6 +43,7 @@
             <TextView
                 android:layout_weight="1"
                 android:text="100%"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:gravity="center"
                 android:layout_width="100dp"
@@ -72,6 +60,7 @@
             <TextView
                 android:layout_weight="1"
                 android:text="1000"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:gravity="center"
                 android:layout_width="100dp"
@@ -79,6 +68,7 @@
             <TextView
                 android:layout_weight="1"
                 android:text="LV1"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:gravity="center"
                 android:layout_width="100dp"
@@ -86,12 +76,12 @@
             <TextView
                 android:layout_weight="1"
                 android:text="100%"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:gravity="center"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>
-
         <LinearLayout
             android:weightSum="3"
             android:layout_alignParentBottom="true"
@@ -138,25 +128,20 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true" />
             </LinearLayout>
-
         </LinearLayout>
-
         <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/userlogo"
-            android:id="@+id/im_personal_head"
+            android:id="@+id/ib_personal_head"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/userlogo_src"
             android:layout_marginLeft="25dp"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true" />
     </RelativeLayout>
-
-
     <RelativeLayout
+        android:background="@mipmap/login_bg"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </RelativeLayout>
-
 </LinearLayout>

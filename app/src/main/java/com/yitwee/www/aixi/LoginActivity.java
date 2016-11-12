@@ -30,6 +30,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //    private SharedPreferences.Editor editor;
     private String number;
     private String password;
+    private boolean flag_main=false;
 //    private SharedPreferences sharedPreferences;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -63,13 +64,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         bt_login.setOnClickListener(this);
         bt_newuser.setOnClickListener(this);
     }
-
     @Override
     public void onClick(View v) {
-
         switch (v.getId()){
             case R.id.bt_login_forgetpassword:
-                startActivity(new Intent(LoginActivity.this,PasswordActivity.class));
+                startActivityForResult(new Intent(LoginActivity.this,PasswordActivity.class),1);
                 break;
             case R.id.bt_login_login:
                 number=et_number.getText().toString().trim();
@@ -85,6 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         public void done(MyUser user, BmobException e){
                             if(user!=null){
                                 Toast.makeText(LoginActivity.this,"登陆成功！",Toast.LENGTH_SHORT).show();
+                                flag_main=true;
                                 startActivity(new Intent(LoginActivity.this,MainActivity.class));
                             }else{
                                 Toast.makeText(LoginActivity.this,"登陆失败！请检查用户名和密码",Toast.LENGTH_SHORT).show();
@@ -94,9 +94,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
                 break;
             case R.id.bt_login_newuser:
-                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+                startActivityForResult(new Intent(LoginActivity.this,RegisterActivity.class),1);
                 break;
             default:break;
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode==1&&resultCode==1)
+            et_number.setText(data.getStringExtra("name"));
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+    @Override
+    protected void onStart(){
+        super.onStart();
+        MyApplication mApp= (MyApplication) getApplication();
+        if (mApp.isExit()){
+            finish();
+            System.exit(0);
         }
     }
 }

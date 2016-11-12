@@ -33,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private Button bt_getcode;
     private Button bt_next;
     private Button bt_nocode;
-    private String username,password,school,phonenumber,verifycode;
+    private String username,password,surepassword,school,phonenumber,verifycode;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -80,13 +80,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         username=et_username.getText().toString().trim();
         password=et_password.getText().toString().trim();
+        surepassword=et_surepassword.getText().toString().trim();
         school=et_school.getText().toString().trim();
         phonenumber=et_phonenumber.getText().toString().trim();
         verifycode=et_verifycode.getText().toString().trim();
-
         switch (v.getId()){
             case R.id.ib_register_return:
-                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                Intent data=new Intent();
+                data.addFlags(0);
+                setResult(0,data);
+                finish();
+               // startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
                 break;
             case R.id.bt_register_getcode:
                 BmobSMS.requestSMSCode(phonenumber, " reg_aixi", new QueryListener<Integer>() {
@@ -102,7 +106,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 });
                 break;
             case R.id.bt_register_next:
-                if(phonenumber.isEmpty()|| verifycode.isEmpty()|| username.isEmpty()||username.isEmpty()||password.isEmpty()||school.isEmpty())
+                if(phonenumber.isEmpty()|| verifycode.isEmpty()|| username.isEmpty()||surepassword.isEmpty()||password.isEmpty()||school.isEmpty()||
+                        !surepassword.equals(password))
                 {
                     Toast.makeText(RegisterActivity.this,"输入信息有误，请检查！",Toast.LENGTH_SHORT).show();
                     break;
@@ -119,7 +124,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             if(e==null){
                                 //toast("注册或登录成功");
                                 Toast.makeText(RegisterActivity.this,"注册成功！",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                                Intent data=new Intent();
+                                data.putExtra("name",username);
+                                setResult(1,data);
+                                finish();
+                               // startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
 //                                Log.i("smile", ""+user.getUsername()+"-"+"-"+user.getObjectId());
                             }else{
                                 Toast.makeText(RegisterActivity.this,"注册失败！",Toast.LENGTH_SHORT).show();

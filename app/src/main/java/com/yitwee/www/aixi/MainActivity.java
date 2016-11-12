@@ -1,6 +1,8 @@
 package com.yitwee.www.aixi;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -8,6 +10,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.Space;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,8 +29,16 @@ import java.util.List;
 
 import cn.bmob.v3.BmobUser;
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener,ViewPager.OnPageChangeListener{
-    private ViewPager main_content_mViewPaper;
+public class MainActivity extends FragmentActivity implements View.OnClickListener{
+    private static boolean isExit = false;
+    Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            isExit = false;
+        }
+    };
+    private MyMainViewPager main_content_mViewPaper;
     private FragmentPagerAdapter main_content_mAapter;
     private List<Fragment> main_content_mDatas;
     private List<String> off_online_statedata;
@@ -102,7 +114,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     private void initView() {
-        main_content_mViewPaper= (ViewPager) findViewById(R.id.vp_main_paper);
+        main_content_mViewPaper= (MyMainViewPager) findViewById(R.id.vp_main_paper);
         main_content_mDatas=new ArrayList<Fragment>();
         Main_Home_Fragment home=new Main_Home_Fragment();
         Main_Order_Fragment order=new Main_Order_Fragment();
@@ -127,15 +139,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             }
         };
         main_content_mViewPaper.setAdapter(main_content_mAapter);
+        main_content_mViewPaper.setScanScroll(false);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_mainmenu_exit:
-                BmobUser.logOut();
+               // BmobUser.logOut();
                 Toast.makeText(MainActivity.this,"当前用户已退出！",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                finish();
+              //  startActivity(new Intent(MainActivity.this,LoginActivity.class));
                 break;
             case R.id.ib_main_menu:
                 mMenu.setVisibility(View.VISIBLE);
@@ -177,7 +191,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 mMenu.setVisibility(View.GONE);
             default:break;
         }
-
     }
 
     public List<MyMenuAdapteruni> getMenulist() {
@@ -191,18 +204,28 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(mMenu.getisOpen()){
+            mMenu.closeMenu();
+            return false;
+        }
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
-
-    @Override
-    public void onPageSelected(int position) {
-
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
+    private void exit() {
+        if (!isExit) {
+            isExit = true;
+            Toast.makeText(getApplicationContext(), "再按一次退出程序",Toast.LENGTH_SHORT).show();
+            // 利用handler延迟发送更改状态信息
+            mHandler.sendEmptyMessageDelayed(0, 2000);
+        } else {
+            MyApplication mApp= (MyApplication) getApplication();
+            mApp.setExit(true);
+            finish();
+        }
     }
 }
 

@@ -1,7 +1,6 @@
 package com.yitwee.www.aixi;
 
 import android.content.Intent;
-import android.icu.text.IDNA;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -64,9 +63,11 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }
                 });
+                //finish();
                 startActivity(new Intent(InfoActivity.this,PersonalActivity.class));
                 break;
             case R.id.bt_info_sure:
+                //finish();
                 startActivity(new Intent(InfoActivity.this,PersonalActivity.class));
                 break;
             default:break;

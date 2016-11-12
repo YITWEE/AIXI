@@ -6,21 +6,22 @@
     android:layout_height="wrap_content">
     <LinearLayout
         android:orientation="horizontal"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="50dp">
         <ImageView
             android:id="@+id/iv_mysubmenu1"
             android:src="@mipmap/ic_launcher"
+            android:layout_marginLeft="20dp"
             android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_height="40dp" />
         <TextView
             android:text="敬请期待"
             android:gravity="center"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:textColor="@color/black"
             android:id="@+id/tv_mysubmenu1"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 public class PersonalActivity extends AppCompatActivity implements View.OnClickListener {
-    private ImageButton ib_personal_back,ib_personal_edit;
+    private ImageButton ib_personal_back,ib_personal_edit,ib_personal_head;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +15,7 @@ public class PersonalActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_personal);
         ib_personal_back= (ImageButton) findViewById(R.id.ib_personal_back);
         ib_personal_edit= (ImageButton) findViewById(R.id.ib_personal_edit);
+        ib_personal_head= (ImageButton) findViewById(R.id.ib_personal_head);
         ib_personal_back.setOnClickListener(this);
         ib_personal_edit.setOnClickListener(this);
     }
@@ -23,7 +24,8 @@ public class PersonalActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.ib_personal_back:
-                startActivity(new Intent(PersonalActivity.this,MainActivity.class));
+                finish();
+               // startActivity(new Intent(PersonalActivity.this,MainActivity.class));
                 break;
             case R.id.ib_personal_edit:
                 startActivity(new Intent(PersonalActivity.this,InfoActivity.class));
