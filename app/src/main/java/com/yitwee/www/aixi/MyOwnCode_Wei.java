@@ -112,6 +112,65 @@ import cn.bmob.v3.listener.UpdateListener;
         });
         //返回LoginActivity
 
+
+        //获取订单
+        MyUser user = BmobUser.getCurrentUser(MyUser.class);
+        BmobQuery<WushPush> query = new BmobQuery<WushPush>();
+        query.addWhereEqualTo("pushUser", user);
+        //返回50条数据，如果不加上这条语句，默认返回10条数据
+        //query.setLimit(50);
+        //执行查询方法
+        query.findObjects(new FindListener<WushPush>() {
+            @Override
+            public void done(List<WushPush> object, BmobException e) {
+                if(e==null){
+                    toast("查询成功：共"+object.size()+"条数据。");
+                    for (WushPush myPush : object) {
+                       //获得playerName的信息
+                       gameScore.getPlayerName();
+                       //获得数据的objectId信息
+                       gameScore.getObjectId();
+                       //获得createdAt数据创建时间（注意是：createdAt，不是createAt）
+                       gameScore.getCreatedAt();
+                    }
+                }else{
+                    Log.i("bmob","失败："+e.getMessage()+","+e.getErrorCode());
+                }
+            }
+        });
+
+
+
+        //添加WashUw订单，删除WashPush订单
+        MyUser user = BmobUser.getCurrentUser(MyUser.class);
+        WashUw my_underway = new WashUw();
+        my_underway.setxxxx(xxxxxxxxxx.ToString());
+        my_underway.setGetUser(user);
+        my_underway.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+                if(e==null){
+                    Toast.makeText(getContext(),"已成功接单，请尽快处理！",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getContext(),"订单接收失败",Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+
+        WashPush gameScore = new WashPush();
+        gameScore.setObjectId("dd8e6aff28");
+        gameScore.delete(new UpdateListener() {
+
+            @Override
+            public void done(BmobException e) {
+                if(e==null){
+                    Log.i("bmob","成功");
+                }else{
+                    Log.i("bmob","失败："+e.getMessage()+","+e.getErrorCode());
+                }
+            }
+        });
+
     }
 
 }

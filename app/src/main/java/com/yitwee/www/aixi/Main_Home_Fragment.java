@@ -8,6 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.yitwee.www.dataclass.MyUser;
+import com.yitwee.www.dataclass.WashPush;
+
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
+
 /**
  * Created by cjb on 2016/10/29.
  */
@@ -41,6 +48,20 @@ public class Main_Home_Fragment extends Fragment implements View.OnClickListener
 
                     @Override
                     public void okButtonClick() {
+
+                        MyUser user = BmobUser.getCurrentUser(MyUser.class);
+                        WashPush my_push=new WashPush();
+                        my_push.setPushUser(user);
+                        my_push.save(new SaveListener<String>() {
+                            @Override
+                            public void done(String s, BmobException e) {
+                                if(e==null){
+                                    Toast.makeText(getContext(),"已成功发布订单",Toast.LENGTH_SHORT).show();
+                                }else{
+                                    Toast.makeText(getContext(),"订单发布失败",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
 
                         Toast.makeText(getContext(),"订单发布成功 水洗："+main_home_order_creater_dialog.Int_num_wash
                                 +"干洗："+main_home_order_creater_dialog.Int_num_dry_wash

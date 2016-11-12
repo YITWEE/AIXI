@@ -12,4 +12,12 @@ public class WashPush extends BmobObject {
 //    private String note;
 //    private String place;
 
+
+    public MyUser getPushUser() {
+        return pushUser;
+    }
+
+    public void setPushUser(MyUser pushUser) {
+        this.pushUser = pushUser;
+    }
 }
