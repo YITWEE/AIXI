@@ -107,11 +107,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
     @Override
     protected void onStart(){
-        super.onStart();
         MyApplication mApp= (MyApplication) getApplication();
         if (mApp.isExit()){
             finish();
             System.exit(0);
         }
+        super.onStart();
     }
 }

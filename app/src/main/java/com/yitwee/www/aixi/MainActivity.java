@@ -10,13 +10,16 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.Space;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.view.View;
 import android.widget.Button;
@@ -57,6 +60,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             ,R.drawable.user,R.drawable.user};
     private String[] tv_submenu={"i洗衣","i打印","i叫水","i交换","i推送","i校园","i出行"};
     private MySlidingMenu mMenu ;
+    private LinearLayout ll_main_menu;
     private ImageButton ib_main_menu;
     private List<MyMenuAdapteruni> mMenulist;
     private ListView lv_menu;
@@ -72,6 +76,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mMenu = (MySlidingMenu) findViewById(R.id.MyMenu_main);
+        ll_main_menu= (LinearLayout) findViewById(R.id.ll_main_menu);
+        ll_main_menu.setVisibility(View.GONE);
+
         sp_main_menu_right_free= (Space) findViewById(R.id.sp_main_menu_right_free);
         ib_main_menu= (ImageButton) findViewById(R.id.ib_main_menu);
         lv_menu= (ListView) findViewById(R.id.lv_mainmenu);
@@ -96,7 +103,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         tv_main_head_bar_title= (TextView) findViewById(R.id.tv_main_head_bar_title);
         tv_main_head_bar_switcher= (TextView) findViewById(R.id.tv_main_head_bar_switcher);
 
-        mMenu.setVisibility(View.GONE);
+       // mMenu.setVisibility(View.GONE);
         initView();
         off_online_statedata=new ArrayList<String>();
         off_online_statedata.add("在线");off_online_statedata.add("离线");
@@ -115,6 +122,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     private void initView() {
         main_content_mViewPaper= (MyMainViewPager) findViewById(R.id.vp_main_paper);
+        main_content_mViewPaper.setMenu(mMenu,mMenu.menu);
         main_content_mDatas=new ArrayList<Fragment>();
         Main_Home_Fragment home=new Main_Home_Fragment();
         Main_Order_Fragment order=new Main_Order_Fragment();
@@ -146,13 +154,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_mainmenu_exit:
-               // BmobUser.logOut();
+                BmobUser.logOut();
                 Toast.makeText(MainActivity.this,"当前用户已退出！",Toast.LENGTH_SHORT).show();
                 finish();
               //  startActivity(new Intent(MainActivity.this,LoginActivity.class));
                 break;
             case R.id.ib_main_menu:
-                mMenu.setVisibility(View.VISIBLE);
+                ll_main_menu.setVisibility(View.VISIBLE);
                 mMenu.toggle();
                 break;
             case R.id.ib_mainmenu_userlogo:
@@ -186,12 +194,19 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 if(peoplerole==1)peoplerole=0;
                 else peoplerole=1;
                 main_content_mViewPaper.setCurrentItem(currentpapernumber+peoplerole*3);
+                break;
             case R.id.sp_main_menu_right_free:
                 mMenu.toggle();
                 mMenu.setVisibility(View.GONE);
             default:break;
         }
     }
+
+/*    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Log.i("tag","MyMain--------onTouch");
+        return super.onTouchEvent(event);
+    }*/
 
     public List<MyMenuAdapteruni> getMenulist() {
 
@@ -227,5 +242,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             finish();
         }
     }
+
 }
 

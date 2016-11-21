@@ -146,7 +146,7 @@ public class SideslipListView extends ListView {
         int nowX = (int) ev.getX();
         int nowY = (int) ev.getY();
         int diffX = nowX - mDownX;
-        if (Math.abs(diffX) > Math.abs(nowY - mDownY) && Math.abs(nowY - mDownY) < 20) {
+        if (Math.abs(diffX) > Math.abs(nowY - mDownY) && Math.abs(nowY - mDownY) < 200) {
             if (!isDeleteShow && nowX < mDownX) {//删除按钮未显示时向左滑
                 if (-diffX >= mDeleteWidth) {//如果滑动距离大于删除组件的宽度时进行偏移的最大处理
                     diffX = -mDeleteWidth;

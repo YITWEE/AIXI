@@ -4,10 +4,11 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include layout="@layout/main_layout"/>
+<!--    <include layout="@layout/main_layout"/>-->
     <com.yitwee.www.aixi.MySlidingMenu
         xmlns:yitwee="http://schemas.android.com/apk/res-auto"
         android:id="@+id/MyMenu_main"
+        android:background="@drawable/main_bg_stars"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:scrollbars="none"
@@ -17,7 +18,9 @@
         android:layout_height="fill_parent"
         android:orientation="horizontal" >
         <include layout="@layout/menu_main"/>
+        <include layout="@layout/main_layout"/>
         <LinearLayout
+            android:visibility="gone"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
