@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.UpdateListener;
 
 public class InfoActivity extends AppCompatActivity implements View.OnClickListener{
     private LinearLayout ll_info_name,ll_info_sex,ll_info_birthday,ll_info_school,ll_info_living,ll_info_sign;
@@ -43,12 +48,27 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.ib_info_back:
-                finish();
-               // startActivity(new Intent(InfoActivity.this,PersonalActivity.class));
+
+                //修改个人信息
+                BmobUser newUser = new BmobUser();
+                //newUser.setEmail("xxx@163.com");
+                BmobUser bmobUser = BmobUser.getCurrentUser();
+                newUser.update(bmobUser.getObjectId(),new UpdateListener() {
+                    @Override
+                    public void done(BmobException e) {
+                        if(e==null){
+                            Toast.makeText(InfoActivity.this,"编辑成功！",Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(InfoActivity.this,"更新失败！",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                //finish();
+                startActivity(new Intent(InfoActivity.this,PersonalActivity.class));
                 break;
             case R.id.bt_info_sure:
-                finish();
-                //startActivity(new Intent(InfoActivity.this,PersonalActivity.class));
+                //finish();
+                startActivity(new Intent(InfoActivity.this,PersonalActivity.class));
                 break;
             default:break;
         }

@@ -9,6 +9,15 @@ import cn.bmob.v3.datatype.BmobDate;
 
 public class WashPush extends BmobObject {
     private MyUser pushUser;
-    private String note;
-    private String place;
+//    private String note;
+//    private String place;
+
+
+    public MyUser getPushUser() {
+        return pushUser;
+    }
+
+    public void setPushUser(MyUser pushUser) {
+        this.pushUser = pushUser;
+    }
 }
